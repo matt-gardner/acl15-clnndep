@@ -1872,6 +1872,8 @@ void DependencyParser::load_model_cl(
     */
 
     double end = get_time();
+    cerr << "Eb size: " << Eb.nrows() << ", " << Eb.ncols() << endl;
+    cerr << "Embeddings size: " << embeddings.nrows() << ", " << embeddings.ncols() << endl;
     cerr << "Elapsed " << (end - start) << "s\n";
 }
 

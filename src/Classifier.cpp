@@ -1345,6 +1345,9 @@ void NNClassifier::compute_scores(
 
         int feat_type = config.get_feat_type(i);
         int emb_size = config.get_embedding_size(feat_type);
+        if (feat_type == Config::BASIC_FEAT) {
+          cerr << "E_index: " << E_index << endl;
+        }
 
         assert (feat_type != Config::NONEXIST);
         if (feat_type == Config::DIST_FEAT)
