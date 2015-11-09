@@ -96,8 +96,9 @@ void DependencyParser::train(
         auto t_beg = train_trees.begin();
         auto t_end = train_trees.begin() + sub_sampling;
         train_trees = vector<DependencyTree>(t_beg, t_end);
+
+        cerr << "Sub-sampling " << sub_sampling << " sentences/trees for training." << endl;
     }
-    cerr << "Sub-sampling " << sub_sampling << " sentences/trees for training." << endl;
 
     Util::print_tree_stats(train_trees);
 
@@ -1309,7 +1310,7 @@ int DependencyParser::get_word_id(const string & s)
     if (word_ids.find(sl) == word_ids.end())
     {
         sl = str_tolower(sl);
-        if (word_ids.find(sl) == word_ids.end())
+        if (word_ids.find(sl) != word_ids.end())
             return word_ids[sl];
         else
         {
